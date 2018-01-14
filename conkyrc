@@ -1,0 +1,79 @@
+conky.config = {
+-- Create own window instead of using desktop (required in nautilus)
+    own_window = true,
+    own_window_hints = 'undecorated,below,skip_taskbar,sticky',
+    background = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 180,
+
+-- Use double buffering (reduces flicker, may not work for everyone)
+    double_buffer = true,
+
+-- fiddle with window
+    use_spacer = 'right',
+    use_xft = true,
+
+-- Update interval in seconds
+    update_interval = 1.0,
+
+-- Minimum size of text area
+    maximum_width = 400,
+    minimum_width = 400, minimum_height = 800,
+
+-- Draw shades?
+    draw_shades = true,
+
+-- Text stuff
+    draw_outline = false,-- amplifies text if yes
+    draw_borders = false,
+
+    uppercase = false,-- set to yes if you want all text to be in uppercase
+
+-- Borders
+    stippled_borders = 8,
+
+-- border width
+    border_width = 1,
+
+-- Default colors and also border colors, grey90 == #e5e5e5
+    default_color = 'white',
+    default_shade_color = 'black',
+    default_outline_color = 'white',
+
+    own_window_transparent = false,
+    own_window_colour = 'black',
+    own_window_type = 'normal',
+
+-- Text alignment, other possible values are commented
+    alignment = 'middle_right',
+
+    lua_load = '~/.conky/my_file.lua',
+    lua_draw_hook_pre = 'circles',
+
+    gap_x = 10,
+    gap_y = 10,
+
+};
+
+conky.text = [[
+${offset 100}${color #FFA300}${font AvantGarde LT Medium:size=14}${exec whoami}@${nodename}${font}${color}
+${font AvantGarde LT Medium:size=14}${color slate grey}Highest CPU:${goto 180}${color slate grey}Uptime: ${color #FFA300}${uptime}${color}${font}
+${color #FFA300}${top name 1}${goto 130}${top_mem cpu 1}${image ~/.conky/pix/c.png -p 230,46 -s 115x145}
+${color lightgrey}${top name 2}${goto 130}${top cpu 2}${goto 275}${color #FFA300}${time %a}
+${color lightgrey}${top name 3}${goto 130}${top cpu 3}${goto 275}${color #FFA300}${font AvantGarde LT Medium:size=12}${time %b}
+${color lightgrey}${top name 4}${goto 130}${top cpu 4}${goto 260}${color #FFA300}${font AvantGarde LT Medium:size=38}${time %d}${color}${font}
+${font AvantGarde LT Medium:size=14}${color slate grey}Highest MEM:${font}
+${color #FFA300}${top_mem name 1}${goto 130}${top_mem mem 1}
+${color lightgrey}${top_mem name 2}${goto 130}${top_mem mem 2}
+${color lightgrey}${top_mem name 3}${goto 130}${top_mem mem 3}
+${color lightgrey}${top_mem name 4}${goto 130}${top_mem mem 4}
+
+${offset 225}${color #FFA300}${font GE Inspira:size=30:style=Bold}${time %I:%M}${font}${color}
+${voffset 110}
+${goto 100}${color #DD3300}${cpu cpu0}%${goto 228}${memperc}%${goto 328}${swapperc}%
+${voffset 10}${font GE Inspira:size=18:style=Bold}${offset 80}CPU${offset 73}RAM${offset 28}SWAP${font}${color}
+${voffset 40}
+${goto 90}${color slate grey}${downspeed wlp2s0}${goto 276}${color #FFA300}${exec rhythmbox-client --print-playing-format=%te}
+${voffset 10}${color slate grey}${offset 83}${font GE Inspira:size=18:style=Bold}NET${font}
+${goto 50}${color slate grey}${addr wlp2s0}${font}${color}${alignc}${color #FFA300}${exec rhythmbox-client --print-playing-format=%tt}
+]];
