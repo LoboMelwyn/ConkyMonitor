@@ -168,9 +168,9 @@ settings_table = {
 	},
 	{
 		name='exec',
-		arg='rhythmbox-client --print-playing-format=%te | tr \':\' \'.\'',
+		arg='rhythmbox-client --no-start --print-playing-format=%te | tr \':\' \'.\'',
 		max = 4,
-		max_script='exec rhythmbox-client --print-playing-format=%td | tr \':\' \'.\'',
+		max_script='exec rhythmbox-client  --no-start --print-playing-format=%td | tr \':\' \'.\'',
 		bg_color=0xffffff,
 		bg_alpha=0.1,
 		fg_color=0xFFA300,
@@ -234,10 +234,9 @@ function conky_circles()
 	local function setup_circle(cr,pt)
 		local str=''
 		local value=0
-		local denom = 0
+		local denom=0
 		str=string.format('${%s %s}', pt['name'], pt['arg'])
 		str=conky_parse(str)
-		
 		value=tonumber(str)
 		denom=tonumber(pt['max'])
 		if value == nil then value = 0 end
@@ -247,7 +246,6 @@ function conky_circles()
 			denom=tonumber(a)
 		end
 		if denom == nil or denom == 0 then pct = 0 else pct=value/denom end
-		
 		circle(cr,pct,pt)
 	end
 	
