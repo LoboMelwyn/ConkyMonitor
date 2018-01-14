@@ -8,7 +8,7 @@ This is my conky implementation
 1. Copy all the files in that directory.
 1. If you are using Ubuntu then all following entry in startup application.
     1. Name: Conky
-    1. Command: conky -c /home/<Home directory name>/.conky/conkyrc
+    1. Command: conky -c /home/< Home dir name >/.conky/conkyrc
 
 ![Adding Conky to Startup](pix/Startup-Screen.png)
 
