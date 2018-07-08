@@ -73,7 +73,7 @@ ${voffset 110}
 ${goto 100}${color #DD3300}${cpu cpu0}%${goto 228}${memperc}%${goto 328}${swapperc}%
 ${voffset 10}${font GE Inspira:size=18:style=Bold}${offset 80}CPU${offset 73}RAM${offset 28}SWAP${font}${color}
 ${voffset 40}
-${goto 90}${color slate grey}${downspeed wlp2s0}${if_running rhythmbox}${goto 276}${color #FFA300}${exec rhythmbox-client --no-start --print-playing-format=%te}$endif
-${voffset 10}${color slate grey}${offset 83}${font GE Inspira:size=18:style=Bold}NET${font}
-${goto 50}${color slate grey}${addr wlp2s0}${font}${color}${if_running rhythmbox}${alignc}${color #FFA300}${exec rhythmbox-client --no-start --print-playing-format=%tt}$endif
+${goto 40}${color slate grey}${downspeed wlp2s0}${if_running rhythmbox}${goto 176}${color #FFA300}${exec rhythmbox-client --no-start --print-playing-format=%te}$endif
+${voffset 10}${color slate grey}${offset 32}${font GE Inspira:size=18:style=Bold}NET${font}
+${goto 10}${color slate grey}${addr wlp2s0}${font}${color}${if_running rhythmbox}${alignc}${color #FFA300}${exec rhythmbox-client --no-start --print-playing-format=%tt | sed -e "s/.\{15\}/&\n\t\t\t\t/g"}$endif
 ]];
