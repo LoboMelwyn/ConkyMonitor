@@ -265,7 +265,7 @@ function conky_circles()
 end
 
 function add_disk_info_to_tables()
-    local handler = io.popen("mount -l | grep '^/' | awk '{print $3,$7}' | tr '[-]' '\r' | tr '\n' ','")
+    local handler = io.popen("mount -l | grep '^/' | grep -v snapd | awk '{print $3,$7}' | tr '[-]' '\r' | tr '\n' ','")
     local disk_list = handler:read("*a")
     local i = 12
     local xdist = -150
