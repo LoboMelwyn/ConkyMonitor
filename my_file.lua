@@ -302,7 +302,7 @@ function add_disk_info_to_tables()
                 b["fg_color"] = 0xffff88
                 b["fg_alpha"] = 0.6
                 b["x"] = pos_X+xdist
-                b["y"] = pos_Y+400
+                b["y"] = pos_Y+390
                 b["radius"] =35
                 b["thick"] = 10
                 b["start_angle"] = 225
