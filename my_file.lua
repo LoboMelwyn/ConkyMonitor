@@ -175,7 +175,22 @@ settings_table = {
 		bg_alpha=0.1,
 		fg_color=0xFFA300,
 		fg_alpha=0.6,
-		x=3*pos_X/3 + 2,
+		x=pos_X + 2,
+		y=pos_Y+280,
+		radius=35,
+		thick=10,
+		start_angle=0,
+		end_angle=360,
+	},
+	{
+		name='exec',
+		arg='python ~/.conky/vlcinfo.py -l',
+		max = 100,
+		bg_color=0xffffff,
+		bg_alpha=0.1,
+		fg_color=0xFFA300,
+		fg_alpha=0.6,
+		x=3*pos_X/2 + 20,
 		y=pos_Y+280,
 		radius=35,
 		thick=10,
@@ -267,7 +282,7 @@ end
 function add_disk_info_to_tables()
     local handler = io.popen("mount -l | grep '^/' | grep -v snapd | awk '{print $3,$7}' | tr '[-]' '\r' | tr '\n' ','")
     local disk_list = handler:read("*a")
-    local i = 12
+    local i = 13
     local xdist = -150
     for disk in string.gmatch(disk_list,"([^,]+)") do
 	local j = 0
